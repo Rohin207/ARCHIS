@@ -66,4 +66,5 @@ Thumbs.db
 
 # Temporary or large presentation/PDF assets if not needed in git
 # new ppt.pptx
-# shortlisted ps.pdf
+# shortlisted ps.pdfnode_modules/
+dist/
