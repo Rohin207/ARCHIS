@@ -68,3 +68,5 @@ Thumbs.db
 # new ppt.pptx
 # shortlisted ps.pdfnode_modules/
 dist/
+
+server/node_modules
