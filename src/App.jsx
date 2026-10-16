@@ -9,6 +9,7 @@ import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 import LandRecordDetailPage from './components/LandRecordDetailPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
@@ -32,7 +33,11 @@ function App() {
             </>
           } />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
           <Route path="/land/:ulpin" element={<LandRecordDetailPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

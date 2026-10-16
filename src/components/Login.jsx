@@ -15,26 +15,12 @@ export default function Login() {
     setLoading(true);
     setError('');
 
-    try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ loginId, password }),
-      });
-      const data = await response.json();
-
-      if (data.success) {
-        setSuccess(true);
-        localStorage.setItem('archis_token', data.token);
-        navigate('/dashboard');
-      } else {
-        setError(data.message || 'Invalid credentials');
-      }
-    } catch (err) {
-      setError('Unable to connect to server. Please ensure the backend is running.');
-    } finally {
+    // Simulate login without backend
+    setTimeout(() => {
       setLoading(false);
-    }
+      localStorage.setItem('archis_token', 'dummy-token');
+      navigate('/dashboard');
+    }, 400);
   };
 
   return (
@@ -138,7 +124,7 @@ export default function Login() {
       </div>
 
       <div className="mt-8 text-center text-xs text-zinc-600">
-        Protected by ARCHIS End-to-End Spatial Encryption &bull; Node.js & MongoDB Cluster Connected
+        Dummy Authentication
       </div>
     </div>
   );
